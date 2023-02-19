@@ -230,3 +230,7 @@ th {
         content: " \2190";
     }
 }
+
+.resent-chart-area {
+    margin: 16px 16px 24px 16px;
+}

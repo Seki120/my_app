@@ -6,6 +6,7 @@
 ?>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="webroot/css/cake.css">
 </head>
 <div class="result index content">
     <?= $this->Html->link(__('New Score'), ['action' => 'add'], ['class' => 'button float-right']) ?>
@@ -55,8 +56,12 @@
             </tbody>
         </table>
     </div>
+    <div class="resent-chart-area">
+      <h3><?= __('Recently Kill Score') ?></h3>
+      <canvas id="killChart"></canvas>
+    </div>
     <div>
-        <canvas id="myChart"></canvas>
+      <h3><?= __('Daily K/D') ?></h3>
     </div>
     <!-- <?php print_r($aKill); ?>
     <?php print_r($kKill) ?>
@@ -77,7 +82,7 @@
 </div>
 
 <script>
-  const ctx = document.getElementById('myChart');
+  const ctx = document.getElementById('killChart');
   let aKill = JSON.parse('<?php echo $aKill_array; ?>');
   let kKill = JSON.parse('<?php echo $kKill_array; ?>');
   let sKill = JSON.parse('<?php echo $sKill_array; ?>');
@@ -94,16 +99,16 @@
       datasets: [{
         label: 'Ap12ple05 kill score',
         data: aKill,
-        borderWidth: 3
+        borderWidth: 3,
       },{
         label: 'kuroyu kill score',
         data: kKill,
-        borderWidth: 3
+        borderWidth: 3,
       },
       {
         label: 'sinamon kill score',
         data: sKill,
-        borderWidth: 3
+        borderWidth: 3,
       }]
     },
     options: {
